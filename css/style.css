@@ -1,0 +1,7 @@
+h1 {
+    font-size: 2.7em !important;
+}
+.white-outline {
+    border: 1px solid white; 
+    border-radius: .5em;
+}
