@@ -1,0 +1,35 @@
+{
+    "name": "Corpus Christi Alerts",
+    "short_name": "CC Alerts",
+    "description": "Provides weather alerts about severe weather for those living in the Coastal Bend.",
+    "start_url": "/index.html",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "background_color": "#212121",
+    "theme_color": "#ff3d00",
+    "dir": "ltr",
+    "lang": "en-US",
+    "icons": [
+        {
+            "src": "/icon/icon-512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/icon/icon-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/icon/icon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "/icon/icon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        }
+    ]
+}

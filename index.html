@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="./css/materialize.min.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="manifest" href="./manifest.json">
+    <!-- Fetch APIs -->
+    <script src="./js/graphicast.js"></script>
 </head>
 
 <body class="grey darken-4">
@@ -77,42 +80,28 @@
         <!-- Tasks -->
         <div class="tasks container white-text">
             <div class="row" style="margin-top: 20px;">
-                <div class="col s12 l4" style="margin-top: 15px;"><a class="amber accent-4 black-text btn" style="width:100%;" href="./pages/about.html"><i
-                            class="material-icons left">info</i>About</a></div>
-                <div class="col s12 l4" style="margin-top: 15px;"><a class="amber accent-4 black-text btn" style="width:100%;" href="./pages/alerts.html"><i
+                <div class="col s12 l4" style="margin-top: 15px;"><a class="amber accent-4 black-text btn"
+                        style="width:100%;" href="./pages/alerts.html"><i
                             class="material-icons left">notification_important</i>Alerts</a></div>
-                <div class="col s12 l4" style="margin-top: 15px;"><a class="amber accent-4 black-text btn" style="width:100%;" href="./pages/forecasts.html"><i
+                <div class="col s12 l4" style="margin-top: 15px;"><a class="amber accent-4 black-text btn"
+                        style="width:100%;" href="./pages/forecasts.html"><i
                             class="material-icons left">cloud</i>Forecasts</a></div>
+                <div class="col s12 l4" style="margin-top: 15px;"><a class="amber accent-4 black-text btn"
+                        style="width:100%;" href="./pages/lake-levels.html"><i class="material-icons left">water</i>Lake
+                        Levels</a></div>
             </div>
 
             <h4 class="hide-on-med-and-up center">Weather Graphics</h4>
-            <h6 class="hide-on-med-and-up center"><strong>September 29, 2025</strong></h6>
-            
-            <h4 class="hide-on-small-and-down"><span style="float: left;">Weather Graphics</span><span style="float: right;">September 29, 2025</span><div style="clear: both;"></div> <!-- Clear the floats --></h4>
+            <h6 class="hide-on-med-and-up center" id="dateDataSm"><strong></strong></h6>
 
-            <div class="row" style="margin-top: 20px;">
-                <div class="col s12 l6">
-                    <img src="./img/graphic-1.png" style="width: 100%; min-width: 200px;">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nam aspernatur repellat amet aut necessitatibus. Earum, voluptates voluptatem! Adipisci, recusandae?</p>
-                </div>
-                <div class="col s12 l6">
-                    <img src="./img/graphic-2.png" style="width: 100%; min-width: 200px;">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt enim fugit at sed veritatis quibusdam aliquam, tempore corporis vel unde?</p>
-                </div>
-            </div>
+            <h4 class="hide-on-small-and-down"><span style="float: left;">Weather Graphics</span><span id="dateData"
+                    style="float: right;"></span>
+                <div style="clear: both;"></div> <!-- Clear the floats -->
+            </h4>
 
-            <div class="row" style="margin-top: 20px;">
-                <div class="col s12 l4">
-                    <img src="./img/graphic-3.png" style="width: 100%; min-width: 200px;">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo illum maiores cum necessitatibus qui odit ipsa dolore libero hic ut.</p>
-                </div>
-                <div class="col s12 l4">
-                    <img src="./img/graphic-4.png" style="width: 100%; min-width: 200px;">
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem asperiores repudiandae aspernatur exercitationem quasi! Eligendi culpa soluta nesciunt odio hic?</p>
-                </div>
-                <div class="col s12 l4">
-                    <img src="./img/graphic-5.png" style="width: 100%; min-width: 200px;">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum excepturi at id provident aliquam tenetur accusantium labore similique quaerat laudantium.</p>
+            <div style="margin-top: 20px;">
+                <div class="row flex-row-override" id="photos">
+                    <!-- Graphicast images go here -->
                 </div>
             </div>
 

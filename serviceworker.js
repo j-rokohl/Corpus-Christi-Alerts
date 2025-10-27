@@ -1,15 +1,35 @@
-const CACHE_NAME = "task-manager-v3";
+const CACHE_NAME = "corpus-christi-alerts-v3";
 
 const ASSETS_TO_CACHE = [
     "/",
+    // Pages
     "/index.html",
     "/pages/about.html",
+    "/pages/alerts.html",
     "/pages/contact.html",
+    "/pages/forecasts.html",
     "/pages/lake-levels.html",
+    "/pages/about", // For netlify pretty urls
+    "/pages/alerts", // For netlify pretty urls
+    "/pages/contact", // For netlify pretty urls
+    "/pages/forecasts", // For netlify pretty urls
+    "/pages/lake-levels", // For netlify pretty urls
+    // CSS
     "/css/materialize.min.css",
+    "/css/style.css",
+    // Icon
+    "/icon/icon-16x16.png",
+    "/icon/icon-32x32.png",
+    "/icon/icon-192x192.png",
+    "/icon/icon-512x512.png",
+    // JS
+    "/js/alert.js",
+    "/js/forecast.js",
+    "/js/graphicast.js",
+    "/js/lake-level.js",
     "/js/materialize.min.js",
-    "/js/ui.js",
-    "/img/task.png",
+    "/js/menus.js",
+    "/js/ui.js"
 ];
 
 self.addEventListener('install', event => {

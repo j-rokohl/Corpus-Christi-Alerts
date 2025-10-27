@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/materialize.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- Fetch APIs -->
+    <script src="../js/lake-level.js"></script>
 </head>
 
 <body class="grey darken-4">
@@ -39,14 +41,14 @@
         </div>
         <div class="container white-text">
             <h1 class="hide-on-med-and-down">Lake Levels</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ut magni ad. Aliquam porro quae
+            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ut magni ad. Aliquam porro quae
                 odit consequuntur. Voluptatem voluptates, repellendus mollitia, adipisci eum distinctio nesciunt
                 maiores, error esse ipsam cupiditate ab inventore nobis. Magnam qui, laudantium aliquid id incidunt
                 culpa facilis, nisi vitae sunt minus tenetur cum! Fuga placeat beatae ipsam id provident ex repellendus
                 optio tempore. Dolores vero, ducimus nisi nesciunt rem maxime ea beatae atque inventore harum id
                 provident esse et at quis hic, expedita officia fuga soluta tenetur, magni qui consequuntur quo
                 doloribus! Perspiciatis quae molestias omnis quam dicta veniam fuga, enim harum debitis, id fugit
-                quidem.</p>
+                quidem.</p> -->
 
             <div class="row">
 
@@ -54,8 +56,12 @@
                     <div class="card blue-grey lighten-4">
                         <div class="card-content black-text center">
                             <span class="card-title"><strong>Lake Corpus Christi Water Level</strong></span>
-                            <p style="font-size: 2.5em;">17% full</p>
-                            <p>As of September 29, 2025</p>
+                            <h6 style="text-transform: uppercase;">Water Level</h6>
+                            <p style="font-size: 2.5em;" id="lakeCC"></p>
+                            <p>Feet MSL</p>
+                            <p id="lakeCCDate"></p>
+                            <p>Level is <span id="lakeCCLevel"></span></p>
+                            <p>below full pool of 94</p>
                         </div>
                     </div>
                 </div>
@@ -64,196 +70,17 @@
                     <div class="card blue-grey lighten-4">
                         <div class="card-content black-text center">
                             <span class="card-title"><strong>Choke Canyon Water Level</strong></span>
-                            <p style="font-size: 2.5em;">12% full</p>
-                            <p>As of September 29, 2025</p>
+                            <h6 style="text-transform: uppercase;">Water Level</h6>
+                            <p style="font-size: 2.5em;" id="chokeCanyon"></p>
+                            <p>Feet MSL</p>
+                            <p id="chokeCanyonDate"></p>
+                            <p>Level is <span id="chokeCanyonLevel"></span></p>
+                            <p>below full pool of 220.50</p>
                         </div>
                     </div>
                 </div>
 
             </div>
-
-            <div class="row">
-                <div class="white-outline">
-                    <div style="margin: 20px;">
-                        <h5>Lake Corpus Christi</h5>
-                        <table class="white-text" style="font-size: 14px !important;">
-                            <thead>
-                                <tr>
-                                    <th width="15%">Date</th>
-                                    <th title="" data-container="body" data-content="
-                                    The amount of water present in a reservoir.
-                                    " data-original-title="Reservoir Storage">Reservoir Storage <br /> (acre-ft)</th>
-                                                                <th title="" data-container="body" data-content="
-                                    The amount of water present within a reservoir's conservation pool.
-                                    Conservation storage is sometimes referred to as normal or multipurpose
-                                    storage (USACE 2018). If reservoir operations are based on a normal
-                                    operating level, conservation storage is calculated based on the normal
-                                    operating level. If the reservoir is shared with another state or
-                                    country then conservation storage refers only to the portion that
-                                    belongs to Texas.
-                                    " data-original-title="Conservation Storage">Conservation Storage <br /> (acre-ft)</th>
-                                                                <th title="" data-container="body" data-content="
-                                    The capacity of a reservoir's conservation pool; if the reservoir is
-                                    shared with another state or country then conservation capacity refers
-                                    only to the portion that belongs to Texas.
-                                    " data-original-title="Conservation Capacity">Conservation Capacity <br /> (acre-ft)</th>
-                                    <th>Conservation Capacity (acre-ft)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2025-09-29</td>
-                                    <td>22.7</td>
-                                    <td>250,185</td>
-                                    <td>244,693</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-09-28</td>
-                                    <td>22.7</td>
-                                    <td>250,655</td>
-                                    <td>245,163</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-09-27</td>
-                                    <td>22.8</td>
-                                    <td>251,376</td>
-                                    <td>245,884</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-09-22</td>
-                                    <td>22.8</td>
-                                    <td>251,700</td>
-                                    <td>246,208</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-08-29</td>
-                                    <td>24.6</td>
-                                    <td>270,531</td>
-                                    <td>265,039</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-06-29</td>
-                                    <td>28.0</td>
-                                    <td>306,919</td>
-                                    <td>301,427</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-03-29</td>
-                                    <td>26.1</td>
-                                    <td>287,280</td>
-                                    <td>281,788</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2024-09-29</td>
-                                    <td>33.3</td>
-                                    <td>364,136</td>
-                                    <td>358,644</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-                        <div class="row">
-                <div class="white-outline">
-                    <div style="margin: 20px;">
-                        <h5>Choke Canyon</h5>
-                        <table class="white-text" style="font-size: 14px !important;">
-                            <thead>
-                                <tr>
-                                    <th width="15%">Date</th>
-                                    <th title="" data-container="body" data-content="
-                                    The amount of water present in a reservoir.
-                                    " data-original-title="Reservoir Storage">Reservoir Storage <br /> (acre-ft)</th>
-                                                                <th title="" data-container="body" data-content="
-                                    The amount of water present within a reservoir's conservation pool.
-                                    Conservation storage is sometimes referred to as normal or multipurpose
-                                    storage (USACE 2018). If reservoir operations are based on a normal
-                                    operating level, conservation storage is calculated based on the normal
-                                    operating level. If the reservoir is shared with another state or
-                                    country then conservation storage refers only to the portion that
-                                    belongs to Texas.
-                                    " data-original-title="Conservation Storage">Conservation Storage <br /> (acre-ft)</th>
-                                                                <th title="" data-container="body" data-content="
-                                    The capacity of a reservoir's conservation pool; if the reservoir is
-                                    shared with another state or country then conservation capacity refers
-                                    only to the portion that belongs to Texas.
-                                    " data-original-title="Conservation Capacity">Conservation Capacity <br /> (acre-ft)</th>
-                                    <th>Conservation Capacity (acre-ft)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2025-09-29</td>
-                                    <td>22.7</td>
-                                    <td>250,185</td>
-                                    <td>244,693</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-09-28</td>
-                                    <td>22.7</td>
-                                    <td>250,655</td>
-                                    <td>245,163</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-09-27</td>
-                                    <td>22.8</td>
-                                    <td>251,376</td>
-                                    <td>245,884</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-09-22</td>
-                                    <td>22.8</td>
-                                    <td>251,700</td>
-                                    <td>246,208</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-08-29</td>
-                                    <td>24.6</td>
-                                    <td>270,531</td>
-                                    <td>265,039</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-06-29</td>
-                                    <td>28.0</td>
-                                    <td>306,919</td>
-                                    <td>301,427</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2025-03-29</td>
-                                    <td>26.1</td>
-                                    <td>287,280</td>
-                                    <td>281,788</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                                <tr>
-                                    <td>2024-09-29</td>
-                                    <td>33.3</td>
-                                    <td>364,136</td>
-                                    <td>358,644</td>
-                                    <td>1,077,857</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </main>
 
