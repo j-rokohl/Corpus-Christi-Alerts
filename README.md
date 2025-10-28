@@ -1,6 +1,6 @@
 # 🚨 Corpus Christi Alerts 🌩️
 
-This is a Progressive Web App that pulls data from the the National Weather Service (NWS) and U.S. Geological Survey (USGS) to provide weather alerts and local lake levels for those living in the Coastal Bend. Lake levels for Corpus Christi Lake and Choke Canyon are updated daily.
+This is a Progressive Web App that pulls data from the the National Weather Service (NWS) and U.S. Geological Survey (USGS) to provide weather alerts and local lake levels for those living in the Coastal Bend. Lake levels for Corpus Christi Lake and Choke Canyon are shown for the day before.
 
  ![desktop and mobile prototypes](https://alerts-cc.netlify.app/img/responsive-design.png) 
 
@@ -32,7 +32,7 @@ For the external image files displayed on the main page, the cache is opened aft
 
 ##  Manifest File
 
-The Manifest file provides the basic blueprint that allows the app to be installable from the browser. This Manifest file is rather basic, providing metadata for the following:
+The Manifest file provides the basic blueprint that allows the app to be installable from the browser. This Manifest file provides metadata for the following:
 
 - **name:** Used to specify the full name of your web application
 - **short_name:** Used to specify a short name for your web application
@@ -58,7 +58,7 @@ The Manifest file provides the basic blueprint that allows the app to be install
 - [https://waterdata.usgs.gov/nwis/dv?cb_00054=on&cb_62614=on&format=rdb&site_no=08210500&legacy=&referred_module=sw&period=&begin_date=2024-10-25](https://waterdata.usgs.gov/nwis/dv?cb_00054=on&cb_62614=on&format=rdb&site_no=08210500&legacy=&referred_module=sw&period=&begin_date=2024-10-25)
 - [https://waterdata.usgs.gov/nwis/dv?cb_00054=on&cb_62614=on&format=rdb&site_no=08206900&legacy=&referred_module=sw&period=&begin_date=2024-10-25](https://waterdata.usgs.gov/nwis/dv?cb_00054=on&cb_62614=on&format=rdb&site_no=08206900&legacy=&referred_module=sw&period=&begin_date=2024-10-25)
 
-##  Prototype Demo
+##  Demo and Download
 
 The app can be viewed and downloaded here:
 
