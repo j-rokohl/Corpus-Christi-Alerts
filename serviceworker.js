@@ -1,4 +1,4 @@
-const CACHE_NAME = "corpus-christi-alerts-v3";
+const CACHE_NAME = "corpus-christi-alerts-v8";
 
 const ASSETS_TO_CACHE = [
     "/",
@@ -9,11 +9,8 @@ const ASSETS_TO_CACHE = [
     "/pages/contact.html",
     "/pages/forecasts.html",
     "/pages/lake-levels.html",
-    "/pages/about", // For netlify pretty urls
-    "/pages/alerts", // For netlify pretty urls
-    "/pages/contact", // For netlify pretty urls
-    "/pages/forecasts", // For netlify pretty urls
-    "/pages/lake-levels", // For netlify pretty urls
+    "/pages/notes.html",
+    "/pages/icons.html",
     // CSS
     "/css/materialize.min.css",
     "/css/style.css",
@@ -32,14 +29,14 @@ const ASSETS_TO_CACHE = [
     "/js/ui.js"
 ];
 
-self.addEventListener('install', event => {
-    console.log('Service Worker: Installing...');
-    event.waitUntil(
-        caches.open(CACHE_NAME).then(cache => {
-            console.log('Service Worker: Caching Files');
-            return cache.addAll(ASSETS_TO_CACHE);
-        })
-    );
+self.addEventListener("install", (event) => {
+  console.log("Service worker: Installing...");
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      console.log("Service worker: caching files");
+      return cache.addAll(ASSETS_TO_CACHE);
+    })
+  );
 });
 
 self.addEventListener('activate', event => {

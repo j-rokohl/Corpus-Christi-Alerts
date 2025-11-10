@@ -14,6 +14,9 @@
 
 <body class="grey darken-4">
     <header>
+        <div id="offlineNotice">
+            <!-- Offline Notice from offline.js -->
+        </div>
         <nav class="z-depth-0 blue-grey lighten-4">
             <div class="nav-wrapper container">
                 <!-- Hamburger Menu for Large Screens -->
@@ -41,41 +44,54 @@
         </div>
         <div class="container white-text">
             <h1 class="hide-on-med-and-down">Lake Levels</h1>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ut magni ad. Aliquam porro quae
-                odit consequuntur. Voluptatem voluptates, repellendus mollitia, adipisci eum distinctio nesciunt
-                maiores, error esse ipsam cupiditate ab inventore nobis. Magnam qui, laudantium aliquid id incidunt
-                culpa facilis, nisi vitae sunt minus tenetur cum! Fuga placeat beatae ipsam id provident ex repellendus
-                optio tempore. Dolores vero, ducimus nisi nesciunt rem maxime ea beatae atque inventore harum id
-                provident esse et at quis hic, expedita officia fuga soluta tenetur, magni qui consequuntur quo
-                doloribus! Perspiciatis quae molestias omnis quam dicta veniam fuga, enim harum debitis, id fugit
-                quidem.</p> -->
 
             <div class="row">
+                <div id="loaderDiv" class="loader"></div>
 
-                <div class="col l6 m12 s12">
-                    <div class="card blue-grey lighten-4">
-                        <div class="card-content black-text center">
-                            <span class="card-title"><strong>Lake Corpus Christi Water Level</strong></span>
-                            <h6 style="text-transform: uppercase;">Water Level</h6>
-                            <p style="font-size: 2.5em;" id="lakeCC"></p>
-                            <p>Feet MSL</p>
-                            <p id="lakeCCDate"></p>
-                            <p>Level is <span id="lakeCCLevel"></span></p>
-                            <p>below full pool of 94</p>
+                <div id="show-1" class="no-show">
+                    <div class="col l6 m12 s12">
+                        <div class="card blue-grey lighten-4">
+                            <div class="card-content black-text center">
+                                <span class="card-title"><strong>Lake Corpus Christi Water Level</strong></span>
+                                <h6 style="text-transform: uppercase;">Water Level</h6>
+                                <p style="font-size: 2.5em;" id="lakeCC"></p>
+                                <p>Feet MSL</p>
+                                <p id="lakeCCDate"></p>
+                                <p>Level is <span id="lakeCCLevel"></span></p>
+                                <p>below full pool of 94</p>
+                                <textarea id="copyLakeCC" style="display: none;">
+
+                                </textarea>
+                                <button id="btn-lake-cc" class="valign-wrapper deep-orange accent-4 white-text btn"
+                                    style="margin-top: 15px;">
+                                    <i class="material-icons" style="font-size: .8em;">content_copy</i> <span
+                                        style="margin-bottom: 5px;">Copy Lake Level</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col l6 m12 s12">
-                    <div class="card blue-grey lighten-4">
-                        <div class="card-content black-text center">
-                            <span class="card-title"><strong>Choke Canyon Water Level</strong></span>
-                            <h6 style="text-transform: uppercase;">Water Level</h6>
-                            <p style="font-size: 2.5em;" id="chokeCanyon"></p>
-                            <p>Feet MSL</p>
-                            <p id="chokeCanyonDate"></p>
-                            <p>Level is <span id="chokeCanyonLevel"></span></p>
-                            <p>below full pool of 220.50</p>
+                <div id="show-2" class="no-show">
+                    <div class="col l6 m12 s12">
+                        <div class="card blue-grey lighten-4">
+                            <div class="card-content black-text center">
+                                <span class="card-title"><strong>Choke Canyon Water Level</strong></span>
+                                <h6 style="text-transform: uppercase;">Water Level</h6>
+                                <p style="font-size: 2.5em;" id="chokeCanyon"></p>
+                                <p>Feet MSL</p>
+                                <p id="chokeCanyonDate"></p>
+                                <p>Level is <span id="chokeCanyonLevel"></span></p>
+                                <p>below full pool of 220.50</p>
+                                <textarea id="copyChokeCanyon" style="display: none;">
+
+                                </textarea>
+                                <button id="btn-choke-canyon" class="valign-wrapper deep-orange accent-4 white-text btn"
+                                    style="margin-top: 15px;">
+                                    <i class="material-icons" style="font-size: .8em;">content_copy</i> <span
+                                        style="margin-bottom: 5px;">Copy Lake Level</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,14 +100,67 @@
         </div>
     </main>
 
+    <!--- Modals ------------------------------------------------------------------->
+
+    <!-- Modal 1 Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="black-text"><i class="material-icons">network_check</i> Connection Restored</h4>
+            <p class="black-text">The connection has been restored. You are now working online.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        </div>
+    </div>
+
+    <!-- Modal 2 Structure -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4 class="black-text"><i class="material-icons">cloud_off</i> Connection Lost</h4>
+            <p class="black-text">The connection has been lost. Your notes will be stored locally.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        </div>
+    </div>
+
+    <!------------------------------------------------------------------------------>
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="../js/materialize.min.js"></script>
-    <script src="../js/ui.js"></script>
+    <script type="module" src="../js/ui.js"></script>
+
     <!-- Menus -->
     <script src="../js/menus.js"></script>
 
+    <!-- Offline Banner -->
+    <script>
+        const offline = `
+        <div style="height: 70px; display: flex;" class="deep-orange accent-4 white-text">
+            <div style="margin: auto;">
+                <div class="white-text">
+                        <i class="material-icons">cloud_off</i>
+                        <span style="font-size: 1.7em;">&nbsp;You're offline</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+        const online = `
+        <div style="display: none !important;>
+        </div>
+    `;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navigator.onLine) {
+                document.getElementById("offlineNotice").innerHTML = online;
+            } else {
+                document.getElementById("offlineNotice").innerHTML = offline;
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -16,6 +16,9 @@
 
 <body class="grey darken-4">
     <header>
+        <div id="offlineNotice">
+            <!-- Offline Notice from offline.js -->
+        </div>
         <nav class="z-depth-0 blue-grey lighten-4">
             <div class="nav-wrapper container">
                 <!-- Navbar for bigger screens -->
@@ -45,6 +48,9 @@
                         <a href="./pages/lake-levels.html" class="waves-effect grey-text text-darken-4">Lake Levels</a>
                     </li>
                     <li>
+                        <a href="./pages/notes.html" class="waves-effect grey-text text-darken-4">Notes</a>
+                    </li>
+                    <li>
                         <a href="./pages/contact.html" class="waves-effect grey-text text-darken-4">Contact</a>
                     </li>
                 </ul>
@@ -69,6 +75,9 @@
             </li>
             <li>
                 <a href="./pages/lake-levels.html" class="waves-effect grey-text text-darken-4">Lake Levels</a>
+            </li>
+            <li>
+                <a href="./pages/notes.html" class="waves-effect grey-text text-darken-4">Notes</a>
             </li>
             <li>
                 <a href="./pages/contact.html" class="waves-effect grey-text text-darken-4">Contact</a>
@@ -113,9 +122,34 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="./js/materialize.min.js"></script>
-    <script src="./js/ui.js"></script>
+    <script type="module" src="./js/ui.js"></script>
 
+    <!-- Offline Banner -->
+    <script>
+        const offline = `
+        <div style="height: 70px; display: flex;" class="deep-orange accent-4 white-text">
+            <div style="margin: auto;">
+                <div class="white-text">
+                        <i class="material-icons">cloud_off</i>
+                        <span style="font-size: 1.7em;">&nbsp;You're offline</span>
+                </div>
+            </div>
+        </div>
+    `;
 
+        const online = `
+        <div style="display: none !important;>
+        </div>
+    `;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navigator.onLine) {
+                document.getElementById("offlineNotice").innerHTML = online;
+            } else {
+                document.getElementById("offlineNotice").innerHTML = offline;
+            }
+        });
+    </script>
 </body>
 
 </html>

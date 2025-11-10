@@ -12,10 +12,13 @@
 
 <body class="grey darken-4">
     <header>
+        <div id="offlineNotice">
+            <!-- Offline Notice from offline.js -->
+        </div>
         <nav class="z-depth-0 blue-grey lighten-4">
             <div class="nav-wrapper container">
                 <div id="largeM">
-                <!-- Menus.js file -->
+                    <!-- Menus.js file -->
                 </div>
             </div>
         </nav>
@@ -23,7 +26,7 @@
 
     <aside>
         <div id="mobileM">
-        <!-- Menus.js file -->
+            <!-- Menus.js file -->
         </div>
     </aside>
 
@@ -38,32 +41,90 @@
         </div>
         <div class="container white-text">
             <h1 class="hide-on-med-and-down">Contact Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nobis sequi itaque deleniti eum cumque. Obcaecati, explicabo modi nesciunt aliquid nam corporis voluptates quas fuga repellat pariatur dignissimos ducimus similique id impedit molestias nulla architecto quos officiis nihil quaerat. Dolorem neque doloremque id veritatis repellendus assumenda iusto ipsa nesciunt provident. Atque tenetur aliquam totam adipisci.</p>  
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate nobis sequi itaque deleniti eum
+                cumque. Obcaecati, explicabo modi nesciunt aliquid nam corporis voluptates quas fuga repellat pariatur
+                dignissimos ducimus similique id impedit molestias nulla architecto quos officiis nihil quaerat. Dolorem
+                neque doloremque id veritatis repellendus assumenda iusto ipsa nesciunt provident. Atque tenetur aliquam
+                totam adipisci.</p>
             <a style="color: white" href="#">
                 <div class="white-outline">
                     <h5>&nbsp;<i class="material-icons">call</i> <strong>Call</strong> 555-555-5555 </h5>
-                </div>  
+                </div>
             </a>
             <a style="color: white" href="#">
                 <div class="white-outline" style="margin-top: 15px;">
                     <h5>&nbsp;<i class="material-icons">mail_outline</i> <strong>Email</strong> contact@alertscc.io</h5>
-                </div>  
-            </a>            
+                </div>
+            </a>
             <a style="color: white" href="#">
                 <div class="white-outline" style="margin-top: 15px;">
                     <h5>&nbsp;<i class="material-icons">chat_bubble</i> <strong>WhatsApp</strong> 555-555-5555 </h5>
-                </div>  
+                </div>
             </a>
         </div>
     </main>
+
+    <!--- Modals ------------------------------------------------------------------->
+
+    <!-- Modal 1 Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="black-text"><i class="material-icons">network_check</i> Connection Restored</h4>
+            <p class="black-text">The connection has been restored. You are now working online.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        </div>
+    </div>
+
+    <!-- Modal 2 Structure -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4 class="black-text"><i class="material-icons">cloud_off</i> Connection Lost</h4>
+            <p class="black-text">The connection has been lost. Your notes will be stored locally.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        </div>
+    </div>
+
+    <!------------------------------------------------------------------------------>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="../js/materialize.min.js"></script>
-    <script src="../js/ui.js"></script>
+    <script type="module" src="../js/ui.js"></script>
+
     <!-- Menus -->
     <script src="../js/menus.js"></script>
+
+    <!-- Offline Banner -->
+    <script>
+        const offline = `
+        <div style="height: 70px; display: flex;" class="deep-orange accent-4 white-text">
+            <div style="margin: auto;">
+                <div class="white-text">
+                        <i class="material-icons">cloud_off</i>
+                        <span style="font-size: 1.7em;">&nbsp;You're offline</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+        const online = `
+        <div style="display: none !important;>
+        </div>
+    `;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navigator.onLine) {
+                document.getElementById("offlineNotice").innerHTML = online;
+            } else {
+                document.getElementById("offlineNotice").innerHTML = offline;
+            }
+        });
+    </script>
 </body>
 
 </html>

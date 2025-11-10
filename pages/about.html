@@ -12,6 +12,9 @@
 
 <body class="grey darken-4">
     <header>
+        <div id="offlineNotice">
+            <!-- Offline Notice from offline.js -->
+        </div>
         <nav class="z-depth-0 blue-grey lighten-4">
             <div class="nav-wrapper container">
                 <div id="largeM">
@@ -71,6 +74,32 @@
         </div>
     </main>
 
+    <!--- Modals ------------------------------------------------------------------->
+
+    <!-- Modal 1 Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4 class="black-text"><i class="material-icons">network_check</i> Connection Restored</h4>
+            <p class="black-text">The connection has been restored. You are now working online.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        </div>
+    </div>
+
+    <!-- Modal 2 Structure -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4 class="black-text"><i class="material-icons">cloud_off</i> Connection Lost</h4>
+            <p class="black-text">The connection has been lost. Your notes will be stored locally.</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+        </div>
+    </div>
+
+    <!------------------------------------------------------------------------------>
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
     <!-- Compiled and minified JavaScript -->
@@ -78,7 +107,34 @@
     <script src="../js/ui.js"></script>
 
     <!-- Menus -->
-    <script src="../js/menus.js"></script>
+    <script type="module" src="../js/menus.js"></script>
+
+    <!-- Offline Banner -->
+    <script>
+        const offline = `
+        <div style="height: 70px; display: flex;" class="deep-orange accent-4 white-text">
+            <div style="margin: auto;">
+                <div class="white-text">
+                        <i class="material-icons">cloud_off</i>
+                        <span style="font-size: 1.7em;">&nbsp;You're offline</span>
+                </div>
+            </div>
+        </div>
+    `;
+
+        const online = `
+        <div style="display: none !important;>
+        </div>
+    `;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (navigator.onLine) {
+                document.getElementById("offlineNotice").innerHTML = online;
+            } else {
+                document.getElementById("offlineNotice").innerHTML = offline;
+            }
+        });
+    </script>
 </body>
 
 </html>

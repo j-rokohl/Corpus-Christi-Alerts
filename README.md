@@ -30,6 +30,10 @@ The service worker initially facilitates the caching of core static assets that 
 
 For the external image files displayed on the main page, the cache is opened after the image status code is confirmed to be okay, and the associated metadata confirms that the image is still active and has not expired.  
 
+## Offline Status Indicators
+
+This app uses modals and alert banners to indicate offline status. A red "You're offline" banner appears to notify users that they are offline. In addition, when a note is added to the Notes page offline, users are notified with an additional modal. 
+
 ##  Manifest File
 
 The Manifest file provides the basic blueprint that allows the app to be installable from the browser. This Manifest file provides metadata for the following:
@@ -46,6 +50,38 @@ The Manifest file provides the basic blueprint that allows the app to be install
 - **dir:** Used to specify the text directionality of the app's content
 - **lang:** Used to specify the language of the content
 - **icons:** Used to specify one or more image files that define the icons to represent your web application
+
+##  Firebase & IndexedDB
+
+The Notes page allows users to store notes. This app stores notes in a Firestore Database when online. When offline, the app stores notes in the local IndexedDB. Users can easily copy data throughout the site using the 📄 copy buttons. This information can then be pasted into the Notes page for future reference. The Notes page allows for CRUD: Create, Read, Update and Destroy. 
+
+To utilize CRUD functions on the Notes page:
+- CREATE notes by clicking the red "Add a Note" button
+- READ notes that are saved and listed on the page
+- UPDATE notes by clicking the pencil icon beside each note. The form will apear to edit the copy.
+- DESTROY a note by clicking the trash can icon beside each note.
+
+To utilize CRUD features offline it is the same as online, with a few changes to the process:
+- When you add a note and you are offline, you will be notified with a modal titled "Connection Lost."
+- When the connection is restored and the data is synced, you will be notified with an additional modal titled "Connection Restored." This modal will appear on any page you visit. 
+
+## How Offline & Online Data is Synced
+When the app cannot get a Firebase ID because it is offline, a temporary task ID is generated locally and stored in IndexedDB. A synced flag is set to false to show that the task hasn’t been uploaded to online yet. Once the internet connection is restored, the app runs the syncTasks function to upload any unsynced tasks to Firebase.
+
+### Steps for Syncing Tasks:
+1. A function first collects all tasks from IndexedDB where synced is false.
+
+2. For each of these tasks, the function:
+
+    - Creates a new task object (taskToSync) containing the needed data (title, description, and status) but excluding the temporary ID.
+
+    - Sends this object to Firebase, which then generates a unique ID for it and saves it.
+
+3. After the task is successfully saved to Firebase, the function:
+
+    - Removes the old record with the temporary ID from IndexedDB.
+
+    - Inserts the updated task (with the new Firebase ID and synced set to true) back to IndexedDB.
 
 ##  Data Sources
 

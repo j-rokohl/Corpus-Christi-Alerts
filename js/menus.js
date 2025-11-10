@@ -26,6 +26,9 @@
                         <a href="./lake-levels.html" class="waves-effect grey-text text-darken-4">Lake Levels</a>
                     </li>
                     <li>
+                        <a href="./notes.html" class="waves-effect grey-text text-darken-4">Notes</a>
+                    </li>
+                    <li>
                         <a href="./contact.html" class="waves-effect grey-text text-darken-4">Contact</a>
                     </li>
                 </ul>
@@ -49,6 +52,9 @@
             </li>
             <li>
                 <a href="./lake-levels.html" class="waves-effect grey-text text-darken-4">Lake Levels</a>
+            </li>
+            <li>
+                <a href="./notes.html" class="waves-effect grey-text text-darken-4">Notes</a>
             </li>
             <li>
                 <a href="./contact.html" class="waves-effect grey-text text-darken-4">Contact</a>
